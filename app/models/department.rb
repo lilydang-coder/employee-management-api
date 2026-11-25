@@ -1,5 +1,5 @@
 class Department < ApplicationRecord
-  has_many :employees
+  has_many :employees, dependent: :restrict_with_error
 
   enum :status, {inactive: 0, active: 1}
   validates :name, presence: true, uniqueness: true, length: {maximum: 100}
