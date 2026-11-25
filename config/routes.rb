@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
 
   # Route test Controler
   get "/ping", to: "ping#show"
@@ -10,5 +11,6 @@ Rails.application.routes.draw do
   #APIs Department
   namespace :api do
     resources :departments, only: [:create, :index, :update, :destroy, :show]
+    resources :employees, only: %i[index create show destroy update]
   end
 end
